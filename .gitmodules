@@ -1,0 +1,3 @@
+[submodule "automation/install_mariadb/roles/mariadb"]
+	path = automation/install_mariadb/roles/mariadb
+	url = https://github.com/bertvv/ansible-role-mariadb.git
