@@ -1,0 +1,8 @@
+---
+- hosts: db
+  name:  Setup mariadb nodes
+  become: yes
+  gather_facts: yes
+
+  roles:
+  - role: mariadb
