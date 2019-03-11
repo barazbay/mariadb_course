@@ -5,5 +5,4 @@
   gather_facts: yes
 
   roles:
-
   - role: azure_vm
