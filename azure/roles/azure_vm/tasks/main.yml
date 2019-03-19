@@ -1,0 +1,14 @@
+---
+- name: deploy vm
+  azure_rm_virtualmachine:
+    resource_group: NetworkWatcherRG
+    name: testvm10
+    vm_size: Standard_B1s
+    admin_username: ikarazbaev
+    ssh_password_enabled: false
+    ssh_public_keys: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC2UZToIC73LvPuzlV2mz7jU0c33QeNll7gzTSxuRaRXRYGLj1x7o7mTRp/63uslXEKFpBh5d7zOJTvYGU85mok5uE+d4mdYMKGwBgsqvHmjEvc6JbXqrY716Tkt6VMZd8gENyKJ7LrK4K/JnpiCdyA14OYhJZgFxEf6FqZgR/bQRJJ9vUnFwDSRUUGh1geVBdX1mewiQj+v9fTVaEa67NIhwcmR9qXwTcNIEOZ+VZDSFpYDpgv/IcpKF7G4r3iJAOFov5Q5OFyRWnkkOuGV+1Z6dFWafr1qkOHec+W8YNZvFAR4GM+RJbVhGEiwlFtj1JBK1n8Atkk5BfdxF3kPpnE6exM0CprkeAS8FztkJFabDySv7o6pD/6M7pjO6is4xyDWp1zAAPWa0OFwVETqOYyWO50kMVZrKIiCDZ6LQjReATe/bZc3YnmnJOWTeYUVPW3xVUw73Vbt+J7Ar7vq5CcvBloJ7BRqUKhjHKC4GoQbz75PU32EKYTwcscCWz7FS8eolikLBxFf2AZOpK5c6edWihicNpju+9+QRlwOfBY5RHkTkipURGQoREVe+g0kEoOVrWtDuz6c82ynuwXa3neF+uwIe9zYKRzkx3cL011gqaCw7g5KL9iVZjZpMwDsnzXrR6dp8+Nc80QNCFpQ4/5q9Lb9bs6kssGTsYyMvaUCw== ilshat.karazbayev@stoloto.ru
+    image:
+      offer: CentOS
+      publisher: OpenLogic
+      sku: '7.1'
+      version: latest
