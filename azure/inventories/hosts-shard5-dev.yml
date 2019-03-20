@@ -1,7 +1,0 @@
-all:
-  vars:
-
-local:
-  hosts:
-    localhost:
-      ansible_host: 127.0.0.1
