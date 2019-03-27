@@ -10,3 +10,15 @@ presentations/DBA2 Automation/DBA2 Automation\. p\.2 install vm in aws with terr
 presentations/DBA2 Automation/DBA2 Automation\. p\.2 install vm in aws with terraform/aws_terraform/\.terraform/plugins/darwin_amd64/terraform-provider-aws_v2\.2\.0_x4
 
 presentations/DBA2 Automation/DBA2 Automation\. p\.2 install vm in aws with terraform/aws_terraform/terraform\.tfstate
+
+presentations/DBA2 Automation/DBA2 Automation\. p\.3 install mariadb/aws_terraform/\.terraform/plugins/darwin_amd64/lock\.json
+
+presentations/DBA2 Automation/DBA2 Automation\. p\.3 install mariadb/aws_terraform/\.terraform/plugins/darwin_amd64/terraform-provider-aws_v2\.3\.0_x4
+
+presentations/DBA2 Automation/DBA2 Automation\. p\.3 install mariadb/aws_terraform/ansible/inventories/hosts\.ini
+
+presentations/DBA2 Automation/DBA2 Automation\. p\.3 install mariadb/aws_terraform/terraform\.tfstate
+
+presentations/DBA2 Automation/DBA2 Automation\. p\.3 install mariadb/aws_terraform/terraform\.tfstate\.backup
+
+presentations/DBA2 Automation/DBA2 Automation\. p\.3 install mariadb/aws_terraform/terraform\.tfvars

@@ -1,0 +1,5 @@
+key_name_aws = "VALUE any you like"
+access_key_aws = "VALUE from downloaded from IAM CSV file"
+secret_key_aws = "VALUE from downloaded from IAM CSV file"
+public_key_aws = "your ssh pub key"
+ami_id_aws = "AMI id"

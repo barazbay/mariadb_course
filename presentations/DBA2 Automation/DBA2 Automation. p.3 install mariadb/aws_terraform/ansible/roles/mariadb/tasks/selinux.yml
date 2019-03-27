@@ -1,0 +1,15 @@
+---
+- block:
+  - name: MariaDB | selinux | restorecon mysql dirs
+    shell: restorecon -Rv "{{ item }}"
+    loop: "{{ mariadb_directories }}"
+
+  - name: MariaDB | selinux | add mysqld to permissive mode
+    selinux_permissive:
+      domain: mysqld_t
+      permissive: True
+
+  - name: MariaDB | selinux | semanage myscl dir context
+    shell: semanage fcontext --add -s unconfined_u -t mysqld_db_t '/var/lib/mysql/*'
+
+  when: ansible_selinux is defined and ansible_selinux != False and ansible_selinux.status == 'enabled' 
