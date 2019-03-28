@@ -1,0 +1,9 @@
+---
+- hosts: type_aws_eip
+  name:  Setup mariadb nodes
+  become: yes
+  user: centos
+  gather_facts: yes
+
+  roles:
+  - role: mariadb

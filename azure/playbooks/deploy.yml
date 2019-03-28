@@ -1,8 +1,0 @@
----
-- hosts: localhost
-  name: MAIN - Step 3. Setup galera nodes
-  become: yes
-  gather_facts: yes
-
-  roles:
-  - role: azure_vm

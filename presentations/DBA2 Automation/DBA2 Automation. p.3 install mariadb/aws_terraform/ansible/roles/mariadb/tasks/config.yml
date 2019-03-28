@@ -1,0 +1,68 @@
+# roles/mariadb/tasks/config.yml
+---
+
+- name: MariaDB | config | ensure MAC permissions for mariadb folders
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: mysql
+    group: mysql
+    recurse: yes
+  loop: "{{ mariadb_directories }}"
+
+- name:  MariaDB | config | Install server config file
+  template:
+    src: etc_my.cnf.d_server.cnf.j2
+    dest: "{{ mariadb_config_server }}"
+  notify: restart mariadb
+  tags: mariadb
+
+- name: MariaDB | config | Install network config file
+  template:
+    src: etc_my.cnf.d_network.cnf.j2
+    dest: "{{ mariadb_config_network }}"
+  notify: restart mariadb
+  tags: mariadb
+
+- name: MariaDB | config | Install custom config file
+  template:
+    src: etc_my.cnf.d_custom.cnf.j2
+    dest: "{{ mariadb_config_custom }}"
+  when: mariadb_custom_cnf|length != 0
+  notify: restart mariadb
+  tags: mariadb
+
+- name: MariaDB | config | Configure swappiness
+  sysctl:
+    name: vm.swappiness
+    value: "{{ mariadb_swappiness }}"
+    state: present
+  when: mariadb_configure_swappiness
+  tags: mariadb
+
+- name: MariaDB | config | edit /etc/systemd/system/mariadb.service.d/limits.conf
+  blockinfile:
+    path: /etc/systemd/system/mariadb.service.d/limits.conf
+    create: yes
+    state: present
+    content: |
+      [Service]
+      LimitNOFILE=infinity
+      LimitMEMLOCK=infinity
+
+- name: MariaDB | config | Disable mariadb autostart
+  systemd:
+    name: mariadb
+    enabled: no
+    daemon_reload: yes
+
+- name: MariaDB | config | Disable mysql autostart
+  command: >
+    chkconfig mysql off
+
+- name: MariaDB | config | Ensure service is started
+  service:
+    name: "{{ mariadb_service }}"
+    state: started
+    enabled: true
+  tags: mariadb

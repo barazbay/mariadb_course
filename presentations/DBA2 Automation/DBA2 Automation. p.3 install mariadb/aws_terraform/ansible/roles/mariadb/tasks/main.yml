@@ -1,0 +1,11 @@
+# roles/mariadb/tasks/main.yml
+---
+
+
+- include_tasks: install.yml
+- include_tasks: config.yml
+- include_tasks: selinux.yml
+- include_tasks: root-password.yml
+- include_tasks: databases.yml
+- include_tasks: users.yml
+- include_tasks: selinux.yml
